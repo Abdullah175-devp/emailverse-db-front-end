@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       return
     }
 
-    if(username =='abdullah@gmail.com' && password=='1111')
+    if(username =='admin-emailverse@emailverse.com' && password=='KK1122_09876@1122')
     {
       this.toast.info("Successfully Login");
       this.toast.info("Please wait");
@@ -60,8 +60,8 @@ export class LoginComponent implements OnInit {
     }
     else
     {
-      this.username_error = "Invalid Email";
-      this.password_error = "Invalid Password";
+      // this.username_error = "Invalid Email";
+      // this.password_error = "Invalid Password";
       this.toast.error("Invalid Username or Password");
       setTimeout(() => {
         this.username_error = "";
