@@ -34,6 +34,7 @@
 								<!--end::Label-->
 								<!--begin::Input-->
 								<input #email class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
+								<div style="color: red;">{{username_error}}</div>
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -51,6 +52,8 @@
 								<!--end::Wrapper-->
 								<!--begin::Input-->
 								<input #password class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" />
+								<div style="color: red;">{{password_error}}</div>
+
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->

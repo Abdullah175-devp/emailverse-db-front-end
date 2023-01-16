@@ -112,6 +112,7 @@ isloaderHidden= true;
 data!:any;
 totalRecords:any;
 page:any=1;
+url:any;
 
 
 length = 50;
@@ -162,7 +163,7 @@ validation(){
     }
     else
     {
-      this.onsearchbyEmail(false);
+      this.onsearchbyEmail();
       console.log("Searrch by Email");
       return;
 
@@ -269,21 +270,18 @@ onsearchbytitleIndustryandcountry(download:boolean){
 
 //-----------------------------------Search by Email------------------------------//
 
-onsearchbyEmail(download:boolean){
+onsearchbyEmail(){
   const body = {
     email: this.modelEmail,
-    download: download
   }
 
-this.dataservice.getDatabyEmail(body).subscribe(
-  (response) => {
-            if(download == true){
-              return;
-            }
 
+ this.url = this.dataservice.getDatabyEmail(body).subscribe(
+  (response) => {
 
       this.isloaderHidden= true;
       console.log(response)
+      
       this.data = response
       this.totalRecords = this.data.length;
 
@@ -299,56 +297,76 @@ this.dataservice.getDatabyEmail(body).subscribe(
 
   );
 
-
 }
 
 //------------------___DOwnlaod Option
 download(){
-//   {
-//     if(this.enableEmailBox== true)
-// {
-//     if(this.modelTitle == '' || this.modelTitle == null ){
-//       this.toast.error("Please Enter Title")
-//       return;
-//     }
-//     if(this.modelCountry == '' || this.modelCountry == null){
-//       this.toast.error("Please Enter Country")
-//       return;
 
-//     }
-//     if(this.modelTotalRecords == '' || this.modelTotalRecords == null || this.modelTotalRecords ==0 ){
-//       this.toast.error("Please select Range for Download")
-//       return;
 
-//     }
-//     if(this.modelIndustry == '' || this.modelIndustry == null){
-//     console.log("Searrch with 3Filter");
-//       this.isloaderHidden= false;
-//     this.onsearchbytitleandcountry(true);
 
-//     }else
-//     {
-//       console.log("Searrch by Industry");
-//       this.onsearchbytitleIndustryandcountry(true);
-//       return;
 
-//     }
 
-//   }
-//   else
-//   {
-//     this.onsearchbyEmail(true);
-//     console.log("Searrch by Email");
-//     return;
 
-//   }
 
-// }
-this.dataservice.download("").subscribe(
-  (response) => {
-    this.toast.success("Seccess")
+
+
+
+
+  
+    if(this.enableEmailBox== true)
+{
+    if(this.modelTitle == '' || this.modelTitle == null ){
+      this.toast.error("Please Enter Title")
+      return;
+    }
+    if(this.modelCountry == '' || this.modelCountry == null){
+      this.toast.error("Please Enter Country")
+      return;
+
+    }
+    if(this.modelTotalRecords == '' || this.modelTotalRecords == null || this.modelTotalRecords ==0 ){
+      this.toast.error("Please select Range for Download")
+      return;
+
+    }
+    if(this.modelIndustry == '' || this.modelIndustry == null){
+    console.log("Download with 3Filter");
+    let title = this.modelTitle.replace(" ","-");
+    let coutnry = this.modelCountry.replace(" ","-");
+    
+    let url = this.dataservice.URL + "/downloadgetbytwo"+ "?gettitle="+title+"&getcountry="+ coutnry+"&recordsize="+this.modelTotalRecords;
+    window.open(url,"_blank")
+      this.toast.info("File Download Successfully");
+
+
+    }else
+    {
+      console.log("Download by Industry");
+      let title = this.modelTitle.replace(" ","-");
+      let coutnry = this.modelCountry.replace(" ","-");
+      let industr = this.modelIndustry.replace(" ","-");
+      
+      let url = this.dataservice.URL + "/downloadgetbythree"+ "?gettitle="+title+"&getcountry="+ coutnry+"&getindustry="+industr+"&recordsize="+this.modelTotalRecords;
+      window.open(url,"_blank")
+        this.toast.info("File Download Successfully");
+      return;
+
+    }
+
   }
-)
+  else
+  {
+    // this.onsearchbyEmail(true);
+    console.log("Download by Email");
+    let url = this.dataservice.URL + "/downloadserachbyemail"+"?email="+this.modelEmail;
+    window.open(url,"_blank")
+      this.toast.info("File Download Successfully");
+
+    return;
+
+  
+
+}
 
 
 }
