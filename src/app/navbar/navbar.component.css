@@ -1,0 +1,23 @@
+a{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.dropdown-item{
+    font-family: 'Roboto', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+@media (min-width: 768px) {
+    .navbar-nav.navbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translatex(-50%);
+    }
+  }
+
+a{
+  color:black
+  
+}
