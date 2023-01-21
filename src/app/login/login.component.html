@@ -1,112 +1,61 @@
-	<!--begin::Body-->
-	<body id="kt_body" class="bg-body">
-		<!--begin::Main-->
-		<!--begin::Root-->
-		<div class="d-flex flex-column flex-root">
-			<!--begin::Authentication - Sign-in -->
-			<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url('../../assets/media/illustrations/sketchy-1/14.png'); background-color: white;" >
-				<!--begin::Content-->
-				<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
-					<!--begin::Logo-->
-					<a href="../../demo1/dist/index.html" class="mb-12">
-						<img alt="Logo" src="../../assets/logo" class="h-40px" />
-					</a>
-					<!--end::Logo-->
-					<!--begin::Wrapper-->
-					<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
-						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
-							<!--begin::Heading-->
-							<div class="text-center mb-10">
-								<!--begin::Title-->
-								<h1 class="text-dark mb-3">Sign In </h1>
-								<!--end::Title-->
-								<!--begin::Link-->
-								<!-- <div class="text-gray-400 fw-bold fs-4">New Here?
-								<a href="../../demo1/dist/authentication/layouts/basic/sign-up.html" class="link-primary fw-bolder">Create an Account</a></div> -->
-								<!--end::Link-->
-							</div>
-							<!--begin::Heading-->
-							<!--begin::Input group-->
-							<div class="fv-row mb-10">
-								<!--begin::Label-->
-								<label  class="form-label fs-6 fw-bolder text-dark">Email</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<input #email class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
-								<div style="color: red;">{{username_error}}</div>
-								<!--end::Input-->
-							</div>
-							<!--end::Input group-->
-							<!--begin::Input group-->
-							<div class="fv-row mb-10">
-								<!--begin::Wrapper-->
-								<div class="d-flex flex-stack mb-2">
-									<!--begin::Label-->
-									<label  class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
-									<!--end::Label-->
-									<!--begin::Link-->
-									<!-- <a href="../../demo1/dist/authentication/layouts/basic/password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a> -->
-									<!--end::Link-->
-								</div>
-								<!--end::Wrapper-->
-								<!--begin::Input-->
-								<input #password class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" />
-								<div style="color: red;">{{password_error}}</div>
+﻿<div class="w-full h-screen overflow-hidden flex items-center justify-center">
+  <div
+    _ngcontent-vdl-c29=""
+    class="w-full mx-5 md:mx-0 md:max-w-md shadow p-5 space-y-4"
+  >
+    <img src="../../assets/logo" />
+    <form
+      _ngcontent-vdl-c29=""
+      novalidate="novalidate"
+      id="kt_sign_in_form"
+      action="#"
+      class="form w-100 ng-untouched ng-pristine ng-valid"
+    >
+      <div _ngcontent-vdl-c29="" class="text-center">
+        <h1 _ngcontent-vdl-c29="" class="text-dark">Login In</h1>
+      </div>
+      <div _ngcontent-vdl-c29="" class="fv-row mb-10">
+        <label _ngcontent-vdl-c29="" class="form-label fs-6 fw-bolder text-dark"
+          >Email</label
+        >
+        <input
+          _ngcontent-vdl-c29=""
+          type="email"
+          name="email"
+          class="form-control form-control-lg form-control-solid"
+          #required
+        />
 
-								<!--end::Input-->
-							</div>
-							<!--end::Input group-->
-							<!--begin::Actions-->
-							<div class="text-center">
-								<!--begin::Submit button-->
-								<div style="color: red;">{{password_error}}</div>
-
-								<button (click)="onClickLogin(email.value,password.value)" type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
-									<span class="indicator-label">Login</span>
-									<!-- <span class="indicator-progress">Please wait...
-									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
-								</button>
-								<!--end::Submit button-->
-								<!--begin::Separator-->
-								<div class="text-center text-muted text-uppercase fw-bolder mb-5">FY</div>
-								<!--end::Separator-->
-								<!--begin::Google link-->
-								<!-- <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-								<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google</a> -->
-								<!--end::Google link-->
-								<!--begin::Google link-->
-								<!-- <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-								<img alt="Logo" src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue with Facebook</a> -->
-								<!--end::Google link-->
-								<!--begin::Google link-->
-								<!-- <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
-								<img alt="Logo" src="assets/media/svg/brand-logos/apple-black.svg" class="h-20px me-3" />Continue with Apple</a> -->
-								<!--end::Google link-->
-							</div>
-							<!--end::Actions-->
-						</form>
-						<!--end::Form-->
-					</div>
-					<!--end::Wrapper-->
-				</div>
-				<!--end::Content-->
-				<!--begin::Footer-->
-				<div class="d-flex flex-center flex-column-auto p-10">
-					<!--begin::Links-->
-					
-
-
-
-                    
-					<!--end::Links-->
-				</div>
-				<!--end::Footer-->
-			</div>
-			<!--end::Authentication - Sign-in-->
-		</div>
-		<!--end::Root-->
-		<!--end::Main-->
-		
-	</body>
-	<!--end::Body-->
+        <div _ngcontent-vdl-c29="" style="color: red"></div>
+      </div>
+      <div _ngcontent-vdl-c29="" class="fv-row mb-10">
+        <div _ngcontent-vdl-c29="" class="d-flex flex-stack mb-2">
+          <label
+            _ngcontent-vdl-c29=""
+            class="form-label fw-bolder text-dark fs-6 mb-0"
+            >Password</label
+          >
+        </div>
+        <input
+          _ngcontent-vdl-c29=""
+          type="password"
+          name="password"
+          class="form-control form-control-lg form-control-solid"
+          required
+        />
+        <div _ngcontent-vdl-c29="" style="color: red"></div>
+      </div>
+      <div _ngcontent-vdl-c29="" class="text-center">
+        <div _ngcontent-vdl-c29="" style="color: red"></div>
+        <button
+          _ngcontent-vdl-c29=""
+          type="submit"
+          id="kt_sign_in_submit"
+          class="bg-blue-500 w-full h-10 rounded text-white font-md hover:bg-blue-400"
+        >
+          <span _ngcontent-vdl-c29="" class="indicator-label">Login</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

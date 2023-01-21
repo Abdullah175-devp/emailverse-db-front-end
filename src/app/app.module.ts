@@ -15,6 +15,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { ToastrModule } from 'ngx-toastr';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -24,7 +25,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
