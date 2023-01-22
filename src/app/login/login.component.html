@@ -1,9 +1,9 @@
-﻿<div class="w-full h-screen overflow-hidden flex items-center justify-center">
+﻿<div class="w-full h-screen overflow-hidden flex items-center justify-center" style="background-image: url(../../assets/bg-01.jpg); background-repeat: no-repeat;background-size: cover;">
   <div
-    _ngcontent-vdl-c29=""
-    class="w-full mx-5 md:mx-0 md:max-w-md shadow p-5 space-y-4"
+   
+    class="w-full mx-5 md:mx-0 md:max-w-md shadow p-5 space-y-4 bg-white rounded outline-double outline-3 outline-offset-2"
   >
-    <img src="../../assets/logo" />
+    <img src="../../assets/logowb.png" />
     <form
       _ngcontent-vdl-c29=""
       novalidate="novalidate"
@@ -12,20 +12,20 @@
       class="form w-100 ng-untouched ng-pristine ng-valid"
     >
       <div _ngcontent-vdl-c29="" class="text-center">
-        <h1 _ngcontent-vdl-c29="" class="text-dark">Login In</h1>
+        <h1 _ngcontent-vdl-c29="" class="text-dark">Login</h1>
       </div>
       <div _ngcontent-vdl-c29="" class="fv-row mb-10">
         <label _ngcontent-vdl-c29="" class="form-label fs-6 fw-bolder text-dark"
           >Email</label
         >
-        <input
+        <input #email
           _ngcontent-vdl-c29=""
           type="email"
           name="email"
           class="form-control form-control-lg form-control-solid"
           #required
         />
-
+        <div style="color: red;">{{username_error}}</div>
         <div _ngcontent-vdl-c29="" style="color: red"></div>
       </div>
       <div _ngcontent-vdl-c29="" class="fv-row mb-10">
@@ -36,13 +36,14 @@
             >Password</label
           >
         </div>
-        <input
+        <input #password
           _ngcontent-vdl-c29=""
           type="password"
           name="password"
           class="form-control form-control-lg form-control-solid"
           required
         />
+        <div style="color: red;">{{password_error}}</div>
         <div _ngcontent-vdl-c29="" style="color: red"></div>
       </div>
       <div _ngcontent-vdl-c29="" class="text-center">
@@ -51,6 +52,7 @@
           _ngcontent-vdl-c29=""
           type="submit"
           id="kt_sign_in_submit"
+            (click)="onClickLogin(email.value,password.value)"
           class="bg-blue-500 w-full h-10 rounded text-white font-md hover:bg-blue-400"
         >
           <span _ngcontent-vdl-c29="" class="indicator-label">Login</span>

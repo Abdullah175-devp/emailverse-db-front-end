@@ -163,6 +163,10 @@ validation(){
     }
     else
     {
+      if(this.modelEmail == '' || this.modelEmail == null ){
+        this.toast.error("Please Enter Email")
+        return;
+      }
       this.onsearchbyEmail();
       console.log("Searrch by Email");
       return;

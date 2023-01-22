@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  URL ='http://localhost:8080';
+  URL ='http://localhost:8080/api';
  
   constructor(private http:HttpClient) { 
   }
