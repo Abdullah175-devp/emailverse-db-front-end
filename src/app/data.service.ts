@@ -38,4 +38,31 @@ export class DataService {
           let url = this.URL+"/download";
           return this.http.get(url,body);
               }
+//---------------------------------login and Uthorization------------------------------------
+
+login(body:any){
+
+let url = this.URL+"/login";
+return this.http.post(url,body,{ observe: 'response' });
+
+
+}
+//---------------------------------Sending OTP------------------------------------
+
+sentotp(body:any){
+
+  let url = this.URL+"/sentotp";
+  return this.http.post(url,body,{ observe: 'response' });
+  
+  
+  }
+//---------------------------------Verify OTP------------------------------------
+
+verifyotp(body:any){
+
+  let url = this.URL+"/verifyotp";
+  return this.http.post(url,body,{ observe: 'response' });
+  
+  
+  }
 }

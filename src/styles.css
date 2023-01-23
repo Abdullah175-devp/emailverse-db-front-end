@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'custom-font';
+    src: url('assets/font/Microsoft_YaHei_Mono/MicrosoftYaHeiMono.ttf');
+  }
+
+  @font-face {
+    font-family: 'quicksand';
+    src: url('assets/font/quicksand/Quicksand-Bold.ttf');
+  }
 body{
     overflow-x: hidden;
 }

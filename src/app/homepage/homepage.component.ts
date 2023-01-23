@@ -11,6 +11,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {}
 
   redirect() {
-    window.open('https://www.youtube.com', '_blank');
+    window.open('https://calendly.com/info-51729/30min', '_blank');
   }
 }

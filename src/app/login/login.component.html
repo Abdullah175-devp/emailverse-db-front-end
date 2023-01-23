@@ -57,6 +57,15 @@
         >
           <span _ngcontent-vdl-c29="" class="indicator-label">Login</span>
         </button>
+        <div [hidden]="isloaderHidden">
+        <div class="text-center mt-5" [hidden]="isloaderHidden">
+          <div class="spinner-border" role="status">
+            
+          </div>
+          
+        </div>
+        <span class="">Loading...</span>
+      </div>
       </div>
     </form>
   </div>
