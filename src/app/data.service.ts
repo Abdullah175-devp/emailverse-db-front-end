@@ -11,9 +11,9 @@ let headers: HttpHeaders = new HttpHeaders();
   providedIn: 'root',
 })
 export class DataService {
-  URL = 'http://localhost:9000/api';
-  URLLogin = 'http://localhost:8080';
-  // URL ='http://smartgrowbusiness.com/api';
+  // URL = 'http://localhost:9000/api';
+  // URLLogin = 'http://localhost:8080';
+  URL ='http://smartgrowbusiness.com/api';
 
   constructor(private http: HttpClient, private cookieService: CookieService) {
     headers = headers.set(

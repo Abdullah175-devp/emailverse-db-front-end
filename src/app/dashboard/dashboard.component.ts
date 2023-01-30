@@ -131,10 +131,13 @@ export class DashboardComponent implements OnInit {
   validation() {
     if (this.enableEmailBox == true) {
       if (this.modelTitle == '' || this.modelTitle == null) {
+        this.toastmessage('question','Missing Entry','Please Enter "Title"')
+
         this.toast.error('Please Enter Title');
         return;
       }
       if (this.modelCountry == '' || this.modelCountry == null) {
+        this.toastmessage('question','Missing Entry','Please Enter "Country"')
         this.toast.error('Please Enter Country');
         return;
       }
@@ -143,6 +146,8 @@ export class DashboardComponent implements OnInit {
         this.modelTotalRecords == null ||
         this.modelTotalRecords == 0
       ) {
+        this.toastmessage('question','Missing Entry','Please select Range for "Download"')
+        
         this.toast.error('Please select Range for Download');
         return;
       }
@@ -157,6 +162,8 @@ export class DashboardComponent implements OnInit {
       }
     } else {
       if (this.modelEmail == '' || this.modelEmail == null) {
+        this.toastmessage('question','Missing Entry','Please Enter "Email"')
+        
         this.toast.error('Please Enter Email');
         return;
       }
@@ -203,15 +210,18 @@ export class DashboardComponent implements OnInit {
 
       console.log(response);
       this.data = response;
-      this.totalRecords = response.result;
+      this.totalRecords = response.length;
       // console.log(this.data)
       // console.log(this.totalRecords)
-      // console.log(response.length)
+      console.log(response.length)
       this.toast.success('Success');
       if (this.data.length == '0') {
-        this.toast.error('No Record Found');
+      this.toastmessage('error','No Record Found','Result 0')
+        // this.toast.error('No Record Found');
         return;
       }
+      this.toastmessage('success','Record Found','Records: '+ this.totalRecords)
+
       this.tableHidden = false;
     },
     (error: any) => {
@@ -239,12 +249,15 @@ export class DashboardComponent implements OnInit {
         console.log(response);
         this.data = response;
         this.totalRecords = this.data.length;
-
+        this.toastmessage('success','Success','Data Fetch Successfully')
         this.toast.success('Success');
         if (this.data.length == '0') {
-          this.toast.error('No Record Found');
+      this.toastmessage('error','No Record Found','Result 0')
+          // this.toast.error('No Record Found');
           return;
         }
+      this.toastmessage('success','Record Found','Records: '+ this.totalRecords)
+
         this.tableHidden = false;
       },
       (error: any) => {
@@ -271,9 +284,12 @@ export class DashboardComponent implements OnInit {
 
         this.toast.success('Success');
         if (this.data.length == '0') {
-          this.toast.error('No Record Found');
+      this.toastmessage('error','No Record Found','Result 0')
+          // this.toast.error('No Record Found');
           return;
         }
+      this.toastmessage('success','Record Found','Records: '+ this.totalRecords)
+
         this.tableHidden = false;
       },
       (error: any) => {
@@ -453,5 +469,14 @@ export class DashboardComponent implements OnInit {
     }).then((result) => {
       this.router.navigate(['login']);
     });
+  }
+  toastmessage(icon:any,title:any,text:any){
+    Swal.fire({
+      icon: icon,
+      title: title,
+      text: text,
+    })
+
+
   }
 }

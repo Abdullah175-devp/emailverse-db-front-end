@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
   ishiddenAdmin:boolean= false;
 
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private cookieService:CookieService) { }
   username:any;
   allowed_sms:any;
   ngOnInit(): void {
@@ -33,8 +34,11 @@ export class NavbarComponent implements OnInit {
   }
 
   onClickLogout(){
-    localStorage.removeItem('token');
-    this.router.navigate(['']);
+    sessionStorage.clear();
+    this.cookieService.set('SessionId',"");
+    // this.cookieService.deleteAll();
+    localStorage.removeItem('SessionId');
+    this.router.navigate(['login']);
   }
 
 }
